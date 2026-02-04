@@ -56,43 +56,43 @@ export const galleryImages = [
 export const reviewsData = [
   {
     id: 1,
-    name: "Rajesh Kumar",
-    nameTa: "ராஜேஷ் குமார்",
+    name: "Vijay Anand",
+    nameTa: "விஜய் ஆனந்த்",
     rating: 5,
-    comment: "Excellent quality coconuts! Been ordering from Suba for over 2 years. Very reliable and prompt delivery.",
-    commentTa: "சிறந்த தர தேங்காய்கள்! 2 ஆண்டுகளுக்கும் மேலாக சுபாவிடம் ஆர்டர் செய்கிறேன். மிகவும் நம்பகமான மற்றும் உடனடி விநியோகம்.",
-    business: "Hotel Owner, Chennai",
-    businessTa: "ஹோட்டல் உரிமையாளர், சென்னை"
+    comment: "Outstanding service! Fresh coconuts delivered on time. Best quality in Chennai. Been their customer for 3 years now.",
+    commentTa: "சிறந்த சேவை! சரியான நேரத்தில் புதிய தேங்காய்கள் வழங்கப்படுகின்றன. சென்னையில் சிறந்த தரம். இப்போது 3 ஆண்டுகளாக அவர்களின் வாடிக்கையாளர்.",
+    business: "Hotel Manager, Chennai",
+    businessTa: "ஹோட்டல் மேலாளர், சென்னை"
   },
   {
     id: 2,
-    name: "Priya Sharma",
-    nameTa: "பிரியா ஷர்மா",
+    name: "Meena Krishnan",
+    nameTa: "மீனா கிருஷ்ணன்",
     rating: 5,
-    comment: "Best coconut supplier in Chennai! Quality is always consistent and prices are very reasonable.",
-    commentTa: "சென்னையில் சிறந்த தேங்காய் சப்ளையர்! தரம் எப்போதும் சீரானது மற்றும் விலைகள் மிகவும் நியாயமானவை.",
-    business: "Retail Shop Owner",
-    businessTa: "சில்லறை கடை உரிமையாளர்"
+    comment: "Excellent quality tender coconuts. Perfect for my juice shop. Very reasonable prices and always fresh stock.",
+    commentTa: "சிறந்த தர இளநீர். என் ஜூஸ் கடைக்கு ஏற்றது. மிகவும் நியாயமான விலைகள் மற்றும் எப்போதும் புதிய சரக்கு.",
+    business: "Juice Shop Owner, Avadi",
+    businessTa: "ஜூஸ் கடை உரிமையாளர், ஆவடி"
   },
   {
     id: 3,
-    name: "Suresh Babu",
-    nameTa: "சுரேஷ் பாபு",
+    name: "Ramesh Kumar",
+    nameTa: "ரமேஷ் குமார்",
     rating: 5,
-    comment: "Very professional service. They understand bulk order requirements perfectly. Highly recommended!",
-    commentTa: "மிகவும் தொழில்முறை சேவை. மொத்த ஆர்டர் தேவைகளை அவர்கள் சரியாக புரிந்துகொள்கிறார்கள். மிகவும் பரிந்துரைக்கப்படுகிறது!",
-    business: "Restaurant Chain, Tamil Nadu",
-    businessTa: "உணவக சங்கிலி, தமிழ்நாடு"
+    comment: "Reliable supplier for our restaurant. Consistent quality, timely delivery, and professional service. Highly recommended!",
+    commentTa: "எங்கள் உணவகத்திற்கு நம்பகமான சப்ளையர். நிலையான தரம், சரியான நேர விநியோகம் மற்றும் தொழில்முறை சேவை. மிகவும் பரிந்துரைக்கப்படுகிறது!",
+    business: "Restaurant Owner, Tambaram",
+    businessTa: "உணவக உரிமையாளர், தாம்பரம்"
   },
   {
     id: 4,
-    name: "Lakshmi Devi",
-    nameTa: "லட்சுமி தேவி",
+    name: "Kavitha Subramaniam",
+    nameTa: "கவிதா சுப்ரமணியம்",
     rating: 5,
-    comment: "Fresh coconuts delivered on time every week. Quality is top-notch and staff is very cooperative.",
-    commentTa: "ஒவ்வொரு வாரமும் சரியான நேரத்தில் புதிய தேங்காய்கள் விநியோகிக்கப்படுகின்றன. தரம் உயர்ந்தது மற்றும் பணியாளர்கள் மிகவும் ஒத்துழைப்புடன் உள்ளனர்.",
-    business: "Individual Customer",
-    businessTa: "தனிப்பட்ட வாடிக்கையாளர்"
+    comment: "Best coconut merchant in the area! Fair pricing, excellent service. They even help with special requirements.",
+    commentTa: "பகுதியில் சிறந்த தேங்காய் வணிகர்! நியாயமான விலை, சிறந்த சேவை. சிறப்பு தேவைகளுக்கும் உதவுகிறார்கள்.",
+    business: "Catering Service, Chennai",
+    businessTa: "கேட்டரிங் சேவை, சென்னை"
   }
 ];
 

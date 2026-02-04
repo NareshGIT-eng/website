@@ -114,8 +114,8 @@ export const translations = {
     phone: "Phone",
     email: "Email",
     businessHours: "Business Hours",
-    mondayToSaturday: "Monday - Saturday: 6:00 AM - 8:00 PM",
-    sunday: "Sunday: 6:00 AM - 2:00 PM",
+    mondayToSaturday: "Everyday: 8:00 AM - 9:00 PM",
+    sunday: "",
     
     // Contact Form
     enquiryForm: "Send Enquiry",
@@ -255,8 +255,8 @@ export const translations = {
     phone: "தொலைபேசி",
     email: "மின்னஞ்சல்",
     businessHours: "வணிக நேரங்கள்",
-    mondayToSaturday: "திங்கள் - சனி: காலை 6:00 - இரவு 8:00",
-    sunday: "ஞாயிறு: காலை 6:00 - மதியம் 2:00",
+    mondayToSaturday: "தினசரி: காலை 8:00 - இரவு 9:00",
+    sunday: "",
     
     // Contact Form
     enquiryForm: "விசாரணை அனுப்பவும்",

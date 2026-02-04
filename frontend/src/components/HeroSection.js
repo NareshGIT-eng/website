@@ -21,11 +21,12 @@ const HeroSection = () => {
   };
 
   const handleCall = () => {
-    window.location.href = 'tel:+919952044195';
+    window.open('tel:+919952044195', '_self');
   };
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/919952044195', '_blank');
+    const message = encodeURIComponent("Hello, I would like to enquire about coconut supply. Please share details.");
+    window.open(`https://wa.me/919952044195?text=${message}`, '_blank');
   };
 
   return (

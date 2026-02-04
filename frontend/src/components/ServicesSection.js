@@ -5,30 +5,6 @@ import { useLanguage } from '../context/LanguageContext';
 const ServicesSection = () => {
   const { t } = useLanguage();
 
-  const services = [
-    {
-      icon: ShoppingCart,
-      title: t('wholesaleBusiness'),
-      description: t('wholesaleDesc'),
-      color: 'from-amber-500 to-orange-500',
-      bgColor: 'from-amber-50 to-orange-50'
-    },
-    {
-      icon: Store,
-      title: t('retailSupply'),
-      description: t('retailDesc'),
-      color: 'from-green-500 to-emerald-500',
-      bgColor: 'from-green-50 to-emerald-50'
-    },
-    {
-      icon: Package,
-      title: t('customOrders'),
-      description: t('customDesc'),
-      color: 'from-blue-500 to-cyan-500',
-      bgColor: 'from-blue-50 to-cyan-50'
-    }
-  ];
-
   return (
     <section id="services" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,30 +19,56 @@ const ServicesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <div
-                key={index}
-                className="group bg-white rounded-2xl border-2 border-gray-100 hover:border-green-200 hover:shadow-2xl transition-all duration-500 overflow-hidden p-8"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                
-                <div className="relative">
-                  <div className={`w-20 h-20 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl`}>
-                    <Icon className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-amber-900 group-hover:to-green-700 group-hover:bg-clip-text transition-all duration-300 mb-4">
-                    {service.title}
-                  </h3>
-                  <p className="text-base text-gray-700 leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
+          {/* Wholesale Business */}
+          <div className="group relative bg-white rounded-2xl border-2 border-gray-100 hover:border-green-200 hover:shadow-2xl transition-all duration-500 overflow-hidden p-8">
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            <div className="relative">
+              <div className="w-20 h-20 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl">
+                <ShoppingCart className="w-10 h-10 text-white" />
               </div>
-            );
-          })}
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-amber-900 group-hover:to-green-700 group-hover:bg-clip-text transition-all duration-300 mb-4">
+                {t('wholesaleBusiness')}
+              </h3>
+              <p className="text-base text-gray-700 leading-relaxed">
+                {t('wholesaleDesc')}
+              </p>
+            </div>
+          </div>
+
+          {/* Retail Supply */}
+          <div className="group relative bg-white rounded-2xl border-2 border-gray-100 hover:border-green-200 hover:shadow-2xl transition-all duration-500 overflow-hidden p-8">
+            <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-emerald-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            <div className="relative">
+              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl">
+                <Store className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-amber-900 group-hover:to-green-700 group-hover:bg-clip-text transition-all duration-300 mb-4">
+                {t('retailSupply')}
+              </h3>
+              <p className="text-base text-gray-700 leading-relaxed">
+                {t('retailDesc')}
+              </p>
+            </div>
+          </div>
+
+          {/* Custom Orders */}
+          <div className="group relative bg-white rounded-2xl border-2 border-gray-100 hover:border-green-200 hover:shadow-2xl transition-all duration-500 overflow-hidden p-8">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-cyan-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            <div className="relative">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl">
+                <Package className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-amber-900 group-hover:to-green-700 group-hover:bg-clip-text transition-all duration-300 mb-4">
+                {t('customOrders')}
+              </h3>
+              <p className="text-base text-gray-700 leading-relaxed">
+                {t('customDesc')}
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Service Areas */}

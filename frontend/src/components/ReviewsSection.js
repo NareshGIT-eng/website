@@ -2,7 +2,6 @@ import React from 'react';
 import { Star } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { reviewsData } from '../utils/mockData';
-import { Card, CardContent, CardHeader } from './ui/card';
 
 const ReviewsSection = () => {
   const { language, t } = useLanguage();
@@ -22,12 +21,12 @@ const ReviewsSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {reviewsData.map((review, index) => (
-            <Card
+            <div
               key={review.id}
-              className="group hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-green-200"
+              className="group bg-white rounded-2xl border-2 border-gray-100 hover:border-green-200 hover:shadow-2xl transition-all duration-300 p-6"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <CardHeader>
+              <div className="mb-4">
                 <div className="flex items-center space-x-1 mb-3">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
@@ -36,26 +35,24 @@ const ReviewsSection = () => {
                 <p className="text-gray-700 italic leading-relaxed">
                   "{language === 'en' ? review.comment : review.commentTa}"
                 </p>
-              </CardHeader>
+              </div>
 
-              <CardContent>
-                <div className="flex items-center space-x-3 pt-4 border-t border-gray-100">
-                  <div className="w-12 h-12 bg-gradient-to-br from-amber-900 to-green-700 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-lg">
-                      {(language === 'en' ? review.name : review.nameTa).charAt(0)}
-                    </span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">
-                      {language === 'en' ? review.name : review.nameTa}
-                    </h4>
-                    <p className="text-sm text-gray-600">
-                      {language === 'en' ? review.business : review.businessTa}
-                    </p>
-                  </div>
+              <div className="flex items-center space-x-3 pt-4 border-t border-gray-100">
+                <div className="w-12 h-12 bg-gradient-to-br from-amber-900 to-green-700 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-bold text-lg">
+                    {(language === 'en' ? review.name : review.nameTa).charAt(0)}
+                  </span>
                 </div>
-              </CardContent>
-            </Card>
+                <div>
+                  <h4 className="font-bold text-gray-900">
+                    {language === 'en' ? review.name : review.nameTa}
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    {language === 'en' ? review.business : review.businessTa}
+                  </p>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
 

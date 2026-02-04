@@ -1,7 +1,6 @@
 import React from 'react';
 import { ShoppingCart, Store, Package } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 
 const ServicesSection = () => {
   const { t } = useLanguage();
@@ -47,28 +46,25 @@ const ServicesSection = () => {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Card
+              <div
                 key={index}
-                className="group hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-green-200 overflow-hidden"
+                className="group bg-white rounded-2xl border-2 border-gray-100 hover:border-green-200 hover:shadow-2xl transition-all duration-500 overflow-hidden p-8"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
                 
-                <CardHeader className="relative">
+                <div className="relative">
                   <div className={`w-20 h-20 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl`}>
                     <Icon className="w-10 h-10 text-white" />
                   </div>
-                  <CardTitle className="text-2xl text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-amber-900 group-hover:to-green-700 group-hover:bg-clip-text transition-all duration-300">
+                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-amber-900 group-hover:to-green-700 group-hover:bg-clip-text transition-all duration-300 mb-4">
                     {service.title}
-                  </CardTitle>
-                </CardHeader>
-
-                <CardContent className="relative">
-                  <CardDescription className="text-base text-gray-700 leading-relaxed">
+                  </h3>
+                  <p className="text-base text-gray-700 leading-relaxed">
                     {service.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                  </p>
+                </div>
+              </div>
             );
           })}
         </div>

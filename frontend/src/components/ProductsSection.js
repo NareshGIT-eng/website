@@ -2,8 +2,6 @@ import React from 'react';
 import { Package } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { productsData } from '../utils/mockData';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { Badge } from './ui/badge';
 
 const ProductsSection = () => {
   const { language, t } = useLanguage();
@@ -23,9 +21,9 @@ const ProductsSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {productsData.map((product, index) => (
-            <Card
+            <div
               key={product.id}
-              className="group hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-green-200 overflow-hidden"
+              className="group bg-white rounded-2xl border-2 border-gray-100 hover:border-green-200 hover:shadow-2xl transition-all duration-300 overflow-hidden"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="relative overflow-hidden">
@@ -35,27 +33,25 @@ const ProductsSection = () => {
                   className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <Badge className="absolute top-4 right-4 bg-green-600 hover:bg-green-700">
+                <span className="absolute top-4 right-4 bg-green-600 text-white text-xs font-medium px-3 py-1.5 rounded-full">
                   {t('available')}
-                </Badge>
+                </span>
               </div>
 
-              <CardHeader>
-                <CardTitle className="text-xl text-gray-900 group-hover:text-amber-900 transition-colors">
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-amber-900 transition-colors mb-2">
                   {language === 'en' ? product.name : product.nameTa}
-                </CardTitle>
-                <CardDescription className="text-gray-600">
+                </h3>
+                <p className="text-gray-600 text-sm mb-4">
                   {language === 'en' ? product.description : product.descriptionTa}
-                </CardDescription>
-              </CardHeader>
+                </p>
 
-              <CardContent>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between text-sm">
+                  <div className="flex items-center justify-between text-sm pb-3 border-b border-gray-100">
                     <span className="font-medium text-gray-700">{t('available')}:</span>
-                    <Badge variant="outline" className="border-amber-900 text-amber-900">
+                    <span className="border border-amber-900 text-amber-900 text-xs px-2 py-1 rounded">
                       {product.availability === 'Both' ? t('both') : product.availability === 'Wholesale' ? t('wholesale') : t('retail')}
-                    </Badge>
+                    </span>
                   </div>
 
                   <ul className="space-y-2">
@@ -69,8 +65,8 @@ const ProductsSection = () => {
                     ))}
                   </ul>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
 

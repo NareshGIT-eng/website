@@ -126,7 +126,6 @@ const ContactSection = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">{t('businessHours')}</h4>
                     <p className="text-gray-600">{t('mondayToSaturday')}</p>
-                    {t('sunday') && <p className="text-gray-600">{t('sunday')}</p>}
                   </div>
                 </div>
               </div>

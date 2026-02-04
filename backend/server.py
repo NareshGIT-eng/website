@@ -40,6 +40,129 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class EnquiryCreate(BaseModel):
+    name: str
+    phone: str
+    email: Optional[EmailStr] = None
+    productType: str
+    quantity: str
+    location: str
+    message: Optional[str] = None
+    language: str
+    submittedAt: str
+
+class Enquiry(BaseModel):
+    model_config = ConfigDict(extra="ignore")  # Ignore MongoDB's _id field
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    phone: str
+    email: Optional[str] = None
+    productType: str
+    quantity: str
+    location: str
+    message: Optional[str] = None
+    language: str
+    submittedAt: str
+    createdAt: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+def send_email_notification(enquiry_data: dict):
+    """Send email notification for new enquiry"""
+    try:
+        # Email configuration
+        sender_email = os.environ.get('SMTP_EMAIL', 'noreply@subacoconut.com')
+        sender_password = os.environ.get('SMTP_PASSWORD', '')
+        recipient_email = 'jsubacoconutmerchant@gmail.com'
+        
+        # Create message
+        msg = MIMEMultipart('alternative')
+        msg['Subject'] = f"🥥 New Enquiry from {enquiry_data['name']}"
+        msg['From'] = sender_email
+        msg['To'] = recipient_email
+        
+        # Create HTML email content
+        html_content = f"""
+        <html>
+          <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+            <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; border-radius: 10px;">
+              <h2 style="color: #78350f; border-bottom: 3px solid #15803d; padding-bottom: 10px;">
+                🥥 New Customer Enquiry
+              </h2>
+              
+              <div style="background-color: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h3 style="color: #15803d; margin-top: 0;">Customer Details</h3>
+                <table style="width: 100%; border-collapse: collapse;">
+                  <tr>
+                    <td style="padding: 10px; font-weight: bold; width: 40%;">Name:</td>
+                    <td style="padding: 10px;">{enquiry_data['name']}</td>
+                  </tr>
+                  <tr style="background-color: #f5f5f5;">
+                    <td style="padding: 10px; font-weight: bold;">Phone:</td>
+                    <td style="padding: 10px;"><a href="tel:{enquiry_data['phone']}" style="color: #15803d;">{enquiry_data['phone']}</a></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px; font-weight: bold;">Email:</td>
+                    <td style="padding: 10px;">{enquiry_data.get('email', 'Not provided')}</td>
+                  </tr>
+                  <tr style="background-color: #f5f5f5;">
+                    <td style="padding: 10px; font-weight: bold;">Product Type:</td>
+                    <td style="padding: 10px;"><strong style="color: #78350f;">{enquiry_data['productType']}</strong></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px; font-weight: bold;">Quantity:</td>
+                    <td style="padding: 10px;"><strong>{enquiry_data['quantity']}</strong></td>
+                  </tr>
+                  <tr style="background-color: #f5f5f5;">
+                    <td style="padding: 10px; font-weight: bold;">Delivery Location:</td>
+                    <td style="padding: 10px;">{enquiry_data['location']}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px; font-weight: bold;">Language:</td>
+                    <td style="padding: 10px;">{enquiry_data['language']}</td>
+                  </tr>
+                  <tr style="background-color: #f5f5f5;">
+                    <td style="padding: 10px; font-weight: bold;">Submitted:</td>
+                    <td style="padding: 10px;">{enquiry_data['submittedAt']}</td>
+                  </tr>
+                </table>
+              </div>
+              
+              {f'''<div style="background-color: #fef3c7; padding: 15px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                <h4 style="margin-top: 0; color: #78350f;">Additional Message:</h4>
+                <p style="margin: 0;">{enquiry_data['message']}</p>
+              </div>''' if enquiry_data.get('message') else ''}
+              
+              <div style="margin-top: 20px; padding: 15px; background-color: #dcfce7; border-radius: 8px;">
+                <p style="margin: 0; color: #166534; font-weight: bold;">
+                  📞 Action Required: Please contact the customer as soon as possible!
+                </p>
+              </div>
+              
+              <div style="margin-top: 20px; text-align: center; color: #666; font-size: 12px;">
+                <p>This is an automated notification from Suba Coconut Merchant website.</p>
+              </div>
+            </div>
+          </body>
+        </html>
+        """
+        
+        # Attach HTML content
+        html_part = MIMEText(html_content, 'html')
+        msg.attach(html_part)
+        
+        # Send email (only if SMTP is configured)
+        if sender_password:
+            with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+                server.login(sender_email, sender_password)
+                server.send_message(msg)
+                logging.info(f"Email sent successfully for enquiry from {enquiry_data['name']}")
+        else:
+            logging.warning("SMTP not configured. Email not sent.")
+            
+    except Exception as e:
+        logging.error(f"Failed to send email: {str(e)}")
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():

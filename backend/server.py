@@ -192,6 +192,47 @@ async def get_status_checks():
     
     return status_checks
 
+@api_router.post("/enquiry")
+async def create_enquiry(enquiry_input: EnquiryCreate):
+    """Create new customer enquiry and send email notification"""
+    try:
+        enquiry_dict = enquiry_input.model_dump()
+        enquiry_obj = Enquiry(**enquiry_dict)
+        
+        # Convert to dict and serialize datetime to ISO string for MongoDB
+        doc = enquiry_obj.model_dump()
+        doc['createdAt'] = doc['createdAt'].isoformat()
+        
+        # Save to database
+        await db.enquiries.insert_one(doc)
+        
+        # Send email notification
+        send_email_notification(enquiry_dict)
+        
+        logging.info(f"New enquiry created from {enquiry_dict['name']}")
+        
+        return {
+            "success": True,
+            "message": "Enquiry submitted successfully",
+            "enquiry_id": enquiry_obj.id
+        }
+    except Exception as e:
+        logging.error(f"Error creating enquiry: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to submit enquiry")
+
+@api_router.get("/enquiries", response_model=List[Enquiry])
+async def get_enquiries():
+    """Get all enquiries (for admin)"""
+    # Exclude MongoDB's _id field from the query results
+    enquiries = await db.enquiries.find({}, {"_id": 0}).sort("createdAt", -1).to_list(1000)
+    
+    # Convert ISO string timestamps back to datetime objects
+    for enquiry in enquiries:
+        if isinstance(enquiry['createdAt'], str):
+            enquiry['createdAt'] = datetime.fromisoformat(enquiry['createdAt'])
+    
+    return enquiries
+
 # Include the router in the main app
 app.include_router(api_router)
 

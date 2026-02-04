@@ -19,7 +19,7 @@ const ReviewsSection = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-amber-900 to-green-700 mx-auto rounded-full mt-4"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviewsData.map((review, index) => (
             <div
               key={review.id}
@@ -32,8 +32,11 @@ const ReviewsSection = () => {
                     <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <p className="text-gray-700 italic leading-relaxed">
+                <p className="text-gray-700 italic leading-relaxed mb-2">
                   "{language === 'en' ? review.comment : review.commentTa}"
+                </p>
+                <p className="text-xs text-gray-500 mt-2">
+                  {review.date}
                 </p>
               </div>
 
@@ -56,16 +59,16 @@ const ReviewsSection = () => {
           ))}
         </div>
 
-        {/* Google Reviews CTA */}
+        {/* JustDial & Google Reviews CTA */}
         <div className="mt-12 text-center">
           <div className="inline-flex items-center bg-white border-2 border-green-200 rounded-full px-8 py-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center space-x-2 mr-4">
               <Star className="w-6 h-6 fill-amber-400 text-amber-400" />
-              <span className="text-3xl font-bold text-gray-900">4.8</span>
+              <span className="text-3xl font-bold text-gray-900">4.5</span>
             </div>
             <div className="text-left border-l-2 border-gray-200 pl-4">
               <p className="text-sm text-gray-600">Based on</p>
-              <p className="font-bold text-gray-900">500+ Google Reviews</p>
+              <p className="font-bold text-gray-900">23+ JustDial Reviews</p>
             </div>
           </div>
         </div>

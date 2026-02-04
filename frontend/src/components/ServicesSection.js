@@ -83,31 +83,69 @@ const ServicesSection = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: t('chennaiAreas'), areas: ['Keelkattalai', 'Avadi', 'Ambattur', 'Tiruvallur', 'Chromepet', 'Tambaram'] },
-              { title: t('tamilNadu'), areas: ['Coimbatore', 'Madurai', 'Trichy', 'Salem', 'Tirunelveli', 'Vellore'] },
-              { title: t('southIndia'), areas: ['Andhra Pradesh', 'Karnataka', 'Kerala', 'Pondicherry'] },
-              { title: t('panIndia'), areas: ['Bulk orders', 'All major cities', 'On request'] }
-            ].map((area, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-green-200 hover:shadow-xl transition-all duration-300"
-              >
-                <h4 className="text-lg font-bold text-gray-900 mb-4 pb-3 border-b-2 border-green-500">
-                  {area.title}
-                </h4>
-                <ul className="space-y-2">
-                  {area.areas.map((location, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-gray-600">
-                      <svg className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                      </svg>
-                      {location}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            <div className="bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-green-200 hover:shadow-xl transition-all duration-300">
+              <h4 className="text-lg font-bold text-gray-900 mb-4 pb-3 border-b-2 border-green-500">
+                {t('chennaiAreas')}
+              </h4>
+              <ul className="space-y-2">
+                {['Keelkattalai', 'Avadi', 'Ambattur', 'Tiruvallur', 'Chromepet', 'Tambaram'].map((location, idx) => (
+                  <li key={idx} className="flex items-center text-sm text-gray-600">
+                    <svg className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                    </svg>
+                    {location}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-green-200 hover:shadow-xl transition-all duration-300">
+              <h4 className="text-lg font-bold text-gray-900 mb-4 pb-3 border-b-2 border-green-500">
+                {t('tamilNadu')}
+              </h4>
+              <ul className="space-y-2">
+                {['Coimbatore', 'Madurai', 'Trichy', 'Salem', 'Tirunelveli', 'Vellore'].map((location, idx) => (
+                  <li key={idx} className="flex items-center text-sm text-gray-600">
+                    <svg className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                    </svg>
+                    {location}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-green-200 hover:shadow-xl transition-all duration-300">
+              <h4 className="text-lg font-bold text-gray-900 mb-4 pb-3 border-b-2 border-green-500">
+                {t('southIndia')}
+              </h4>
+              <ul className="space-y-2">
+                {['Andhra Pradesh', 'Karnataka', 'Kerala', 'Pondicherry'].map((location, idx) => (
+                  <li key={idx} className="flex items-center text-sm text-gray-600">
+                    <svg className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                    </svg>
+                    {location}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-green-200 hover:shadow-xl transition-all duration-300">
+              <h4 className="text-lg font-bold text-gray-900 mb-4 pb-3 border-b-2 border-green-500">
+                {t('panIndia')}
+              </h4>
+              <ul className="space-y-2">
+                {['Bulk orders', 'All major cities', 'On request'].map((location, idx) => (
+                  <li key={idx} className="flex items-center text-sm text-gray-600">
+                    <svg className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                    </svg>
+                    {location}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

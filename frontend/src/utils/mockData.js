@@ -59,10 +59,11 @@ export const reviewsData = [
     name: "Veni",
     nameTa: "வேணி",
     rating: 5,
+    source: "JustDial",
     comment: "Recently I purchased coconuts from Suba Coconut Merchant. All coconuts are big size and quality excellent. Anyone want to purchase bulk amount highly recommend.",
     commentTa: "சமீபத்தில் சுபா தேங்காய் வணிகரிடம் தேங்காய்கள் வாங்கினேன். அனைத்து தேங்காய்களும் பெரிய அளவு மற்றும் தரம் சிறந்தது. மொத்த அளவில் வாங்க விரும்புபவர்கள் மிகவும் பரிந்துரைக்கிறேன்.",
-    business: "JustDial Review - Oct 2025",
-    businessTa: "ஜஸ்ட் டயல் விமர்சனம் - அக் 2025",
+    business: "JustDial Review",
+    businessTa: "ஜஸ்ட் டயல் விமர்சனம்",
     date: "Oct 10, 2025"
   },
   {
@@ -70,10 +71,11 @@ export const reviewsData = [
     name: "Vasanthi",
     nameTa: "வசந்தி",
     rating: 5,
+    source: "JustDial",
     comment: "Their service was excellent and prompt home delivery. I highly recommend this vendor for purchase of coconuts and other accessories related to them.",
     commentTa: "அவர்களின் சேவை சிறப்பாக இருந்தது மற்றும் உடனடி வீட்டு விநியோகம். தேங்காய் மற்றும் அதனுடன் தொடர்புடைய பிற பொருட்கள் வாங்குவதற்கு இந்த விற்பனையாளரை மிகவும் பரிந்துரைக்கிறேன்.",
-    business: "JustDial Review - Aug 2025",
-    businessTa: "ஜஸ்ட் டயல் விமர்சனம் - ஆக 2025",
+    business: "JustDial Review",
+    businessTa: "ஜஸ்ட் டயல் விமர்சனம்",
     date: "Aug 26, 2025"
   },
   {
@@ -81,10 +83,11 @@ export const reviewsData = [
     name: "Farsana",
     nameTa: "பர்சானா",
     rating: 5,
+    source: "JustDial",
     comment: "Excellent communications to buyer. Affordable price as per request, overall full satisfaction to purchase with them.",
     commentTa: "வாங்குபவருக்கு சிறந்த தொடர்பு. கோரிக்கைக்கு ஏற்ப மலிவு விலை, அவர்களுடன் வாங்குவதில் ஒட்டுமொத்த முழு திருப்தி.",
-    business: "JustDial Review - Oct 2025",
-    businessTa: "ஜஸ்ட் டயல் விமர்சனம் - அக் 2025",
+    business: "JustDial Review",
+    businessTa: "ஜஸ்ட் டயல் விமர்சனம்",
     date: "Oct 6, 2025"
   },
   {
@@ -92,33 +95,36 @@ export const reviewsData = [
     name: "Srividya",
     nameTa: "ஸ்ரீவித்யா",
     rating: 5,
+    source: "JustDial",
     comment: "We purchased coconuts for a function at home. The quality of the coconut was good and delivery was on time.",
     commentTa: "வீட்டில் ஒரு விழாவுக்கு தேங்காய்கள் வாங்கினோம். தேங்காயின் தரம் நன்றாக இருந்தது மற்றும் விநியோகம் சரியான நேரத்தில் இருந்தது.",
-    business: "JustDial Review - Oct 2025",
-    businessTa: "ஜஸ்ட் டயல் விமர்சனம் - அக் 2025",
+    business: "JustDial Review",
+    businessTa: "ஜஸ்ட் டயல் விமர்சனம்",
     date: "Oct 17, 2025"
   },
   {
     id: 5,
-    name: "Harshini",
-    nameTa: "ஹர்ஷினி",
+    name: "Google Reviewer",
+    nameTa: "கூகுள் விமர்சகர்",
     rating: 5,
-    comment: "The service and quality of the coconut was really fresh and good. Very satisfied with the purchase.",
-    commentTa: "சேவை மற்றும் தேங்காயின் தரம் மிகவும் புதியதாகவும் நன்றாகவும் இருந்தது. வாங்கிய விஷயத்தில் மிகவும் திருப்தி.",
-    business: "JustDial Review - Aug 2025",
-    businessTa: "ஜஸ்ட் டயல் விமர்சனம் - ஆக 2025",
-    date: "Aug 14, 2025"
+    source: "Google",
+    comment: "Trusted supplier of high-quality coconuts. Excellent service with focus on freshness, timely delivery, and transparent pricing.",
+    commentTa: "உயர் தர தேங்காய்களின் நம்பகமான சப்ளையர். புத்துணர்ச்சி, சரியான நேர விநியோகம் மற்றும் வெளிப்படையான விலையில் கவனம் செலுத்தும் சிறந்த சேவை.",
+    business: "Google Review",
+    businessTa: "கூகுள் விமர்சனம்",
+    date: "2025"
   },
   {
     id: 6,
-    name: "Jenifer",
-    nameTa: "ஜெனிபர்",
+    name: "Harshini",
+    nameTa: "ஹர்ஷினி",
     rating: 5,
-    comment: "Good vendor, timely delivery and excellent customer service. Will definitely order again.",
-    commentTa: "நல்ல விற்பனையாளர், சரியான நேரத்தில் விநியோகம் மற்றும் சிறந்த வாடிக்கையாளர் சேவை. நிச்சயமாக மீண்டும் ஆர்டர் செய்வேன்.",
-    business: "JustDial Review - Oct 2025",
-    businessTa: "ஜஸ்ட் டயல் விமர்சனம் - அக் 2025",
-    date: "Oct 6, 2025"
+    source: "JustDial",
+    comment: "The service and quality of the coconut was really fresh and good. Very satisfied with the purchase.",
+    commentTa: "சேவை மற்றும் தேங்காயின் தரம் மிகவும் புதியதாகவும் நன்றாகவும் இருந்தது. வாங்கிய விஷயத்தில் மிகவும் திருப்தி.",
+    business: "JustDial Review",
+    businessTa: "ஜஸ்ட் டயல் விமர்சனம்",
+    date: "Aug 14, 2025"
   }
 ];
 

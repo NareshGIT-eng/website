@@ -13,7 +13,7 @@ import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import FloatingButtons from './components/FloatingButtons';
-import { Toaster } from './components/ui/sonner';
+import { Toaster } from 'sonner';
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
         </main>
         <Footer />
         <FloatingButtons />
-        <Toaster />
+        <Toaster position="top-right" richColors />
       </div>
     </LanguageProvider>
   );

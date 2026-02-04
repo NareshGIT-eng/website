@@ -4,18 +4,21 @@ import { useLanguage } from '../context/LanguageContext';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
-import { useToast } from '../hooks/use-toast';
+import { toast } from 'sonner';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const ContactSection = () => {
-  const { t } = useLanguage();
-  const { toast } = useToast();
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     quantity: '',
     location: '',
-    message: ''
+    message: '',
+    productType: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -30,22 +33,39 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Enquiry Submitted!",
-        description: "We'll contact you shortly. Thank you!",
-      });
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        quantity: '',
-        location: '',
-        message: ''
-      });
+    try {
+      const submissionData = {
+        ...formData,
+        language: language === 'en' ? 'English' : 'Tamil',
+        submittedAt: new Date().toISOString()
+      };
+
+      const response = await axios.post(`${BACKEND_URL}/api/enquiry`, submissionData);
+      
+      if (response.data.success) {
+        toast.success(language === 'en' 
+          ? "Enquiry sent successfully! We'll contact you shortly." 
+          : "விசாரணை வெற்றிகரமாக அனுப்பப்பட்டது! நாங்கள் விரைவில் உங்களைத் தொடர்பு கொள்வோம்."
+        );
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          quantity: '',
+          location: '',
+          message: '',
+          productType: ''
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting enquiry:', error);
+      toast.error(language === 'en' 
+        ? "Failed to send enquiry. Please try calling us directly." 
+        : "விசாரணை அனுப்ப முடியவில்லை. தயவுசெய்து எங்களை நேரடியாக அழைக்கவும்."
+      );
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -176,6 +196,26 @@ const ContactSection = () => {
                     className="w-full"
                   />
                 </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Product Type *
+                </label>
+                <select
+                  name="productType"
+                  value={formData.productType}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                >
+                  <option value="">Select Product Type</option>
+                  <option value="Brown Husked Coconut">Brown Husked Coconut</option>
+                  <option value="Raw Husked Coconut">Raw Husked Coconut</option>
+                  <option value="Semi Husked Coconut">Semi Husked Coconut</option>
+                  <option value="Tender Coconut">Tender Coconut</option>
+                  <option value="Mixed/Custom Order">Mixed/Custom Order</option>
+                </select>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
